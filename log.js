@@ -8,12 +8,12 @@ function log(config){
   let host       = config.hostname
   let username   = config.username
   let password   = config.password
-  let level      = config.level || 'error'
+  let level      = config.level || '(custom)?error'
   
   let server = new dwServer(host, username, password)
   
   let gotEntries = server.ls('../Logs');
-  let regex = new RegExp(`^(custom)?${level}-blade`)
+  let regex = new RegExp(`^${level}-blade`)
   let seenLevels = {};
 
   let animateOut = new AnimateChunk({animationDuration : 500});
